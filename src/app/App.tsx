@@ -1,15 +1,16 @@
-import { useState } from "react";
-import { Button } from "@/shared/components/ui/button";
+
+import { AuthForm } from "@/widgets/auth/AuthForm";
+
 
 function App() {
-  const [count, setCount] = useState(0);
+
 
   return (
-    <>
-      <div>
-        <Button>Click me</Button>
-      </div>
-    </>
+    <div className="flex min-h-screen flex-col items-center justify-center" >
+ 
+
+      <AuthForm />
+    </div >
   );
 }
 
