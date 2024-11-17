@@ -11,6 +11,7 @@ import {
   createRootRoute,
 } from "@tanstack/react-router";
 import { TanStackRouterDevtools } from "@tanstack/router-devtools";
+import AuthForm from "./pages/Auth";
 
 const rootRoute = createRootRoute({
   component: () => (
@@ -21,6 +22,9 @@ const rootRoute = createRootRoute({
         </Link>{" "}
         <Link to="/about" className="[&.active]:font-bold">
           About
+        </Link>
+        <Link to="/auth" className="[&.active]:font-bold">
+          Auth
         </Link>
       </div>
       <hr />
@@ -50,7 +54,13 @@ const aboutRoute = createRoute({
   },
 });
 
-const routeTree = rootRoute.addChildren([indexRoute, aboutRoute]);
+const authRoute = createRoute({
+  getParentRoute: () => rootRoute,
+  path: "/auth",
+  component: AuthForm,
+});
+
+const routeTree = rootRoute.addChildren([indexRoute, aboutRoute, authRoute]);
 
 const router = createRouter({ routeTree });
 
@@ -59,9 +69,6 @@ declare module "@tanstack/react-router" {
     router: typeof router;
   }
 }
-
-
-
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
