@@ -13,7 +13,7 @@ import {
   FormMessage,
 } from "@/shared/components/ui/form";
 import { Input } from "@/shared/components/ui/input";
-import { useLogin } from "@/features/auth/api";
+
 
 const formSchema = z.object({
   username: z.string().min(2, {
@@ -23,7 +23,7 @@ const formSchema = z.object({
 });
 
 export function AuthForm() {
-  const { mutate, isLoading, error } = useLogin();
+
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -34,7 +34,8 @@ export function AuthForm() {
   });
 
   function onSubmit(values: z.infer<typeof formSchema>) {
-    mutate(values);
+   console.log(values);
+   
   }
 
   return (
