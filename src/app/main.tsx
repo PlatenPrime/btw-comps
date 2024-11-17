@@ -3,6 +3,14 @@ import { createRoot } from "react-dom/client";
 import "./index.css";
 
 import {
+  useQuery,
+  useMutation,
+  useQueryClient,
+  QueryClient,
+  QueryClientProvider,
+} from "@tanstack/react-query";
+
+import {
   Outlet,
   RouterProvider,
   Link,
@@ -11,7 +19,7 @@ import {
   createRootRoute,
 } from "@tanstack/react-router";
 import { TanStackRouterDevtools } from "@tanstack/router-devtools";
-import AuthForm from "./pages/Auth";
+import AuthForm from "../pages/Auth";
 
 const rootRoute = createRootRoute({
   component: () => (
@@ -70,8 +78,12 @@ declare module "@tanstack/react-router" {
   }
 }
 
+const queryClient = new QueryClient();
+
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
-    <RouterProvider router={router} />
+    <QueryClientProvider client={queryClient}>
+      <RouterProvider router={router} />
+    </QueryClientProvider>
   </StrictMode>
 );
