@@ -22,7 +22,7 @@ const formSchema = z.object({
   password: z.string().min(8, "Пароль має бути мінімум 8 символів."),
 });
 
-export function AuthForm() {
+export function LoginForm() {
 
 
   const form = useForm<z.infer<typeof formSchema>>({

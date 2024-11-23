@@ -3,9 +3,6 @@ import { createRoot } from "react-dom/client";
 import "./index.css";
 
 import {
-  useQuery,
-  useMutation,
-  useQueryClient,
   QueryClient,
   QueryClientProvider,
 } from "@tanstack/react-query";
@@ -19,7 +16,7 @@ import {
   createRootRoute,
 } from "@tanstack/react-router";
 import { TanStackRouterDevtools } from "@tanstack/router-devtools";
-import AuthForm from "../pages/Auth";
+import {LoginPage} from "../pages/LoginPage";
 
 const rootRoute = createRootRoute({
   component: () => (
@@ -65,7 +62,7 @@ const aboutRoute = createRoute({
 const authRoute = createRoute({
   getParentRoute: () => rootRoute,
   path: "/auth",
-  component: AuthForm,
+  component: LoginPage,
 });
 
 const routeTree = rootRoute.addChildren([indexRoute, aboutRoute, authRoute]);
