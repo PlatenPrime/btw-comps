@@ -9,9 +9,7 @@ import { TanStackRouterDevtools } from "@tanstack/router-devtools";
 import { Outlet, Link } from "@tanstack/react-router";
 
 
-const LoginPage = React.lazy(() =>
-  import("../pages/LoginPage").then((module) => ({ default: module.LoginPage }))
-);
+import LoginPage from '@/pages/LoginPage';
 
 // Root route layout
 const rootRoute = createRootRoute({
