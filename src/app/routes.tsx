@@ -16,7 +16,7 @@ import LoginPage from "@/pages/LoginPage";
 const rootRoute = createRootRoute({
   component: () => (
     <>
-      <div className="p-2 flex gap-2">
+      <div className="p-2 flex gap-2 bg-cyan-100">
         <Link to="/" className="[&.active]:font-bold">
           Home
         </Link>
@@ -29,7 +29,7 @@ const rootRoute = createRootRoute({
       </div>
       <hr />
       <Outlet />
-      <TanStackRouterDevtools />
+      <TanStackRouterDevtools  />
     </>
   ),
 });
