@@ -8,8 +8,8 @@ import {
 import { TanStackRouterDevtools } from "@tanstack/router-devtools";
 import { Outlet, Link } from "@tanstack/react-router";
 
-
-import LoginPage from '@/pages/LoginPage';
+import LoginPage from "@/pages/LoginPage";
+import ArtikulsPage from "@/pages/ArtikulsPage";
 
 // Root route layout
 const rootRoute = createRootRoute({
@@ -19,11 +19,11 @@ const rootRoute = createRootRoute({
         <Link to="/" className="[&.active]:font-bold">
           Home
         </Link>
-        <Link to="/about" className="[&.active]:font-bold">
-          About
+        <Link to="/artikuls" className="[&.active]:font-bold">
+          Артикули
         </Link>
         <Link to="/auth" className="[&.active]:font-bold">
-          Auth
+          Авторизація
         </Link>
       </div>
       <hr />
@@ -46,12 +46,14 @@ const indexRoute = createRoute({
   },
 });
 
-const aboutRoute = createRoute({
+const artikulsRoute = createRoute({
   getParentRoute: () => rootRoute,
-  path: "/about",
-  component: function About() {
-    return <div className="p-2">Hello from About!</div>;
-  },
+  path: "/artikuls",
+  component: () => (
+    <Suspense fallback={<div>Loading...</div>}>
+      <ArtikulsPage />
+    </Suspense>
+  ),
 });
 
 const authRoute = createRoute({
@@ -65,7 +67,7 @@ const authRoute = createRoute({
 });
 
 // Create route tree and router
-const routeTree = rootRoute.addChildren([indexRoute, aboutRoute, authRoute]);
+const routeTree = rootRoute.addChildren([indexRoute, artikulsRoute, authRoute]);
 
 export const router = createRouter({ routeTree });
 
