@@ -1,15 +1,16 @@
-import React, { Suspense } from "react";
+import { Suspense } from "react";
 
 import {
-  createRouter,
-  createRoute,
   createRootRoute,
+  createRoute,
+  createRouter,
+  Link,
+  Outlet,
 } from "@tanstack/react-router";
 import { TanStackRouterDevtools } from "@tanstack/router-devtools";
-import { Outlet, Link } from "@tanstack/react-router";
 
-import LoginPage from "@/pages/LoginPage";
 import ArtikulsPage from "@/pages/ArtikulsPage";
+import LoginPage from "@/pages/LoginPage";
 
 // Root route layout
 const rootRoute = createRootRoute({
