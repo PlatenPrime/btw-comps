@@ -1,7 +1,7 @@
 export type Artikul = {
   artikul: string;
   nameukr: string;
-  prod: string;
+  prod?: string;
   category?: string;
   subcategory?: string;
   size?: string;
@@ -16,7 +16,7 @@ export type Artikul = {
     ideaLink?: string;
     chudoLink?: string;
   };
-  avail: {
+  avail?: {
     btrade?: number;
     sharte?: number | string | boolean;
     yumi?: number | string | boolean;
@@ -28,7 +28,7 @@ export type Artikul = {
     idea?: number | string | boolean;
     chudo?: number | string | boolean;
   };
-  price: {
+  price?: {
     btrade?: string;
     sharte?: string;
     yumi?: string;
