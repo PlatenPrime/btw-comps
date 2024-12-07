@@ -1,4 +1,4 @@
-import TestTable from "@/features/artikulsTable/page";
+import TestTable from "@/entities/artikulsTable/page";
 
 export default function ArtikulsPage() {
   return (

@@ -9,8 +9,8 @@ import {
 } from "@tanstack/react-router";
 import { TanStackRouterDevtools } from "@tanstack/router-devtools";
 
-import ArtikulsPage from "@/pages/ArtikulsPage";
-import LoginPage from "@/pages/LoginPage";
+import ArtikulsPage from "@/pages/artikuls";
+import LoginPage from "@/pages/login";
 
 // Root route layout
 const rootRoute = createRootRoute({
@@ -29,7 +29,7 @@ const rootRoute = createRootRoute({
       </div>
       <hr />
       <Outlet />
-      <TanStackRouterDevtools  />
+      <TanStackRouterDevtools />
     </>
   ),
 });
